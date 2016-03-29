@@ -1,11 +1,14 @@
 <?php
+/**
+ * Manual Gateway Response
+ */
 
 namespace Omnipay\Manual\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
 
 /**
- * Manual Response
+ * Manual Gateway Response
  */
 class Response extends AbstractResponse
 {

@@ -38,4 +38,26 @@ class GatewayTest extends GatewayTestCase
         $this->assertNull($response->getTransactionReference());
         $this->assertNull($response->getMessage());
     }
+
+    public function testVoid()
+    {
+        $response = $this->gateway->void($this->options)->send();
+
+        $this->assertInstanceOf('\Omnipay\Manual\Message\Response', $response);
+        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertNull($response->getMessage());
+    }
+
+    public function testRefund()
+    {
+        $response = $this->gateway->refund($this->options)->send();
+
+        $this->assertInstanceOf('\Omnipay\Manual\Message\Response', $response);
+        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertNull($response->getMessage());
+    }
 }
