@@ -1,11 +1,14 @@
 <?php
+/**
+ * Manual Gateway Request
+ */
 
 namespace Omnipay\Manual\Message;
 
 use Omnipay\Common\Message\AbstractRequest;
 
 /**
- * Manual Request
+ * Manual Gateway Request
  */
 class Request extends AbstractRequest
 {
