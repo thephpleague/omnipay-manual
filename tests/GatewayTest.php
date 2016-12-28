@@ -60,4 +60,37 @@ class GatewayTest extends GatewayTestCase
         $this->assertNull($response->getTransactionReference());
         $this->assertNull($response->getMessage());
     }
+
+    public function testPurchase()
+    {
+        $response = $this->gateway->purchase($this->options)->send();
+
+        $this->assertInstanceOf('\Omnipay\Manual\Message\Response', $response);
+        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertNull($response->getMessage());
+    }
+
+    public function testCompletePurchase()
+    {
+        $response = $this->gateway->completePurchase($this->options)->send();
+
+        $this->assertInstanceOf('\Omnipay\Manual\Message\Response', $response);
+        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertNull($response->getMessage());
+    }
+
+    public function testCompleteAuthorise()
+    {
+        $response = $this->gateway->completeAuthorise($this->options)->send();
+
+        $this->assertInstanceOf('\Omnipay\Manual\Message\Response', $response);
+        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertNull($response->getMessage());
+    }
 }
